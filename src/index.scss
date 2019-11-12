@@ -1,0 +1,11 @@
+$biao-color:red;
+.myDiv {
+    width: 200px;
+    height: 100px;
+    background-color: $biao-color;
+}
+.imgPng {
+    width: 200px;
+    height: 200px;
+    background-image: url('./image/loading.gif');
+}
