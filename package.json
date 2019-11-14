@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --mode development",
     "build": "webpack --mode production",
-    "server": "webpack-dev-server"
+    "dev": "webpack-dev-server --mode development",
+    "lint": "tslint --config tslint.json --project . "
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
@@ -28,10 +29,13 @@
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "ts-loader": "^6.2.1",
+    "tslint": "^5.20.1",
     "typescript": "^3.7.2",
+    "typescript-tslint-plugin": "^0.5.5",
     "url-loader": "^2.2.0",
     "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.9.0"
   },
   "author": "",
   "license": "ISC",

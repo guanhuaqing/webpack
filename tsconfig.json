@@ -14,7 +14,15 @@
         "allowSyntheticDefaultImports": true,
         "typeRoots": ["node_modules/@types"],
         "lib": ["es2017", "dom"],
-             
+        "plugins":[
+            {
+                "name":"typescript-tslint-plugin",
+                "alwaysShowRuleFailureAsWarning": false,
+                "ignoreDefinitionFiles": true,
+                "configFile": "./tslint.json",
+                "suppressWhileTypeErrorsPresent": false
+            }
+        ]   
     },
     "exclude": ["node_modules"]
 }

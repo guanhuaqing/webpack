@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin"); 
+const webpack = require('require');
 //const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
@@ -67,7 +68,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: 'index.html',
       filename: 'index.html',
       title: 'Webpack App',
       hash: process.env.NODE_ENV === 'production',
@@ -76,11 +77,15 @@ module.exports = {
       filename: 'style.css',
       disable: false
     }),
+    new webpack.HotModuleReplacementPlugin({
+      // Options...
+    })
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9000
+    port: 9000,
+    hot: true
   }
 }
 
