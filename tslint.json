@@ -1,7 +1,12 @@
 {
     "extends":[
-        "tslint:latest"
+        "tslint:latest",
+        "tslint-sonarts"
     ],
+    "rulesDirectory": [
+        "node_modules/tslint-eslint-rules/dist/rules",
+        "node_modules/codelyzer"
+      ],
     "rules":{
         "no-console": [
             true,
@@ -39,8 +44,7 @@
             true,
             "rxjs",
             "core-js",
-            "zone.js",
-            "@angular"
+            "zone.js"
         ],
         "import-blacklist": [
             true,
