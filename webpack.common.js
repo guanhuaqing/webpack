@@ -6,7 +6,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     entry: {
         foo: path.resolve(__dirname, './src/foo'),
-        bar: path.resolve(__dirname, './src/bar')
+        bar: path.resolve(__dirname, './src/bar'),
+        vendor: path.resolve(__dirname, './src/vendor.ts')
     },
     output: {
         // filename: '[name].[hash:8].js',
@@ -63,5 +64,17 @@ module.exports = {
             filename: 'index.html',
             title: 'Production'
         }),
-    ]
+    ],
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name:'common',
+                    chunks: 'all',
+                 //   minChunks: 2, // reference times is bigger than 2
+                }
+            }
+        }
+    }
 };

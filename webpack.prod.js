@@ -1,12 +1,14 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require('webpack');
 module.exports = merge(common, {
     mode: 'production',
    // devtool: 'inline-source-map',
     devtool: false,
     output: {
         filename: '[name].[hash:8].js',
+        chunkFilename: '[name].[chunkhash].js'
     },
     module: {
         rules: [
@@ -35,16 +37,17 @@ module.exports = merge(common, {
             chunkFilename: "[id].css"
           })
     ],
-    /*optimization: {
+    optimization: {
         splitChunks: {
             cacheGroups: {
                 styles: {
                     name:'styles',
                     test: /.css$/,
                     chunks: 'all',
-                    enforce: true
+                    enforce: true,
+                    priority: 20
                 }
             }
         }
-    }*/
+    }
 });
