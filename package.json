@@ -7,7 +7,7 @@
     "build": "webpack --config webpack.prod.js --process --colors",
     "serve": "webpack-dev-server --open --config webpack.dev.js --process --colors",
     "lint": "tslint --config tslint.json --project . ",
-    "test": "karma start"
+    "test": "karma start karma.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
@@ -34,8 +34,6 @@
     "karma-coverage": "^2.0.1",
     "karma-jasmine": "^2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
-    "karma-remap-coverage": "^0.1.5",
-    "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^4.0.2",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",

@@ -17,14 +17,12 @@ module.exports = function(config) {
         require('karma-coverage'),
         require('karma-chrome-launcher'),
         require('karma-jasmine-html-reporter'),
-        require('karma-sourcemap-loader'),
-        require('karma-remap-coverage')
         // require('karma-coverage-istanbul-reporter')
     ],
 
     // list of files / patterns to load in the browser
     files: [
-      'src/**/*.ts',
+     // 'src/**/*.ts',
       'test/**/*.ts',
     ],
 
@@ -42,7 +40,7 @@ module.exports = function(config) {
     },
      /* 新增的配置项 */
      coverageReporter: {
-        type: 'html',
+        type: 'lcov',
         dir: 'coverage/'
       },
     coverageIstanbulReporter: {
