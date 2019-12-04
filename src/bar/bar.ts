@@ -1,13 +1,13 @@
 import './bar.scss';
 export class Person {
-    name:string;
-    age:number;
-    constructor(name,age) {
+    public name: string;
+    public age: number;
+    constructor(name, age) {
         this.name = name;
         this.age = age;
     }
 
-    printInfomation() {
+    public printInfomation() {
         console.log(`${this.name} is already ${this.age}!`);
     }
 }

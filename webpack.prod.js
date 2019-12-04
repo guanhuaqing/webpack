@@ -2,6 +2,7 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require('webpack');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 module.exports = merge(common, {
     mode: 'production',
    // devtool: 'inline-source-map',
@@ -23,6 +24,25 @@ module.exports = merge(common, {
                         loader: 'css-loader?sourceMap'
                     },
                     {
+                        loader:'postcss-loader',
+                        options: {
+                            plugins: [
+                                require("autoprefixer")({
+                                  /*  browsers: [
+                                        "ie >= 11",
+                                        "ff >= 30",
+                                        "chrome >= 34",
+                                        "safari >= 7",
+                                        "opera >= 23",
+                                        "ios >= 7",
+                                        "android >= 4.4",
+                                        "bb >= 10"
+                                    ]*/
+                                })
+                            ]
+                        }
+                    },
+                    {
                         loader: 'sass-loader?sourceMap'
                     }
                 ]
@@ -35,10 +55,16 @@ module.exports = merge(common, {
             // both options are optional
             filename: "[name].css",
             chunkFilename: "[id].css"
-          })
+          }),
+        new webpack.HashedModuleIdsPlugin(),
+        new WorkboxPlugin.GenerateSW({
+            clientsClaim: true,
+           // skiWaiting: true
+        })
     ],
     optimization: {
         splitChunks: {
+            chunks: 'all',
             cacheGroups: {
                 styles: {
                     name:'styles',
@@ -46,6 +72,13 @@ module.exports = merge(common, {
                     chunks: 'all',
                     enforce: true,
                     priority: 20
+                },
+                vendor: {
+                    test: /node_modules/,
+                    chunks:'all',
+                    name: 'vendor',
+                    priority: 10,
+                    enforce: true
                 }
             }
         }

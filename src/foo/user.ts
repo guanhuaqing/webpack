@@ -1,12 +1,12 @@
-export interface User {
-    name: String,
-    age: String,
-    hobby: String,
-    options?: Object
+export interface IUser {
+    name: string;
+    age: string;
+    hobby: string;
+    options?: object;
 }
 
-export interface Animal {
-    name: String
+export interface IAnimal {
+    name: string;
 }
 
 export class Test {
@@ -21,3 +21,4 @@ export class Test3 {
 export class Test4 {
     
 }
+
