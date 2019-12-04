@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.js --process --colors",
-    "serve": "webpack-dev-server --open --config webpack.dev.js --process --colors",
+    "build": "webpack --config webpack.config.js --process --colors --env.mode=prod",
+    "dev": "webpack-dev-server --open --config webpack.config.js --process --colors --env.mode=dev",
     "lint": "tslint --config tslint.json --project . ",
     "test": "karma start karma.config.js"
   },
