@@ -1,16 +1,25 @@
 {
-    "extends":[
+    "extends": [
         "tslint:latest",
         "tslint-sonarts"
     ],
-    "rules":{
+    "rules": {
+        "ordered-imports": false,
+        "no-empty": false,
+        "trailing-comma": false,
+        "member-ordering": false,
+        "member-access": false,
+        "no-commented-code": false,
         "quotemark": [
             true,
             "single",
             "jsx-single",
             "avoid-escape"
         ],
-        "no-console": [true,  "error"],
+        "no-console": [
+            true,
+            "error"
+        ],
         "max-line-length": [
             true,
             140

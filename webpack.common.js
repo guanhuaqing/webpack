@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
+        designPattern: path.resolve(__dirname, './src/designPattern.ts'),
         foo: path.resolve(__dirname, './src/foo'),
         bar: path.resolve(__dirname, './src/bar'),
         vendor: path.resolve(__dirname, './src/vendor.ts')
@@ -28,7 +29,7 @@ module.exports = {
                 use: [
                     { loader: 'babel-loader' }
                 ] // options 在 .babelrc 定义
-            }, 
+            },
             {
                 test: /\.(png|jpe?g|gif|svg)$/,
                 use: [
@@ -70,9 +71,9 @@ module.exports = {
             cacheGroups: {
                 commons: {
                     test: /[\\/]node_modules[\\/]/,
-                    name:'common',
+                    name: 'common',
                     chunks: 'all',
-                 //   minChunks: 2, // reference times is bigger than 2
+                    //   minChunks: 2, // reference times is bigger than 2
                 }
             }
         }
@@ -82,8 +83,8 @@ module.exports = {
         hints: "warning",
         // 开发环境设置较大防止警告
         // 根据入口起点的最大体积，控制webpack何时生成性能提示,整数类型,以字节为单位
-        maxEntrypointSize: 5000000, 
+        maxEntrypointSize: 5000000,
         // 最大单个资源体积，默认250000 (bytes)
-        maxAssetSize: 3000000
+        maxAssetSize: 5000000
     }
 };
