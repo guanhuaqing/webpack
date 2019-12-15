@@ -10,6 +10,8 @@
         "member-ordering": false,
         "member-access": false,
         "no-commented-code": false,
+        "object-literal-sort-keys": false,
+        "ban-types": false,
         "quotemark": [
             true,
             "single",

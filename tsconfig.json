@@ -1,6 +1,9 @@
 {
     "compileOnSave": false,
-    "include": ["src/*", "test/*"],
+    "include": [
+        "src/*",
+        "test/*"
+    ],
     "compilerOptions": {
         "baseUrl": "./",
         "outDir": "./dist",
@@ -8,13 +11,20 @@
         "declaration": false,
         "module": "es6",
         "target": "es5",
-        "allowJs": true,
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "allowJs": true,
         "allowSyntheticDefaultImports": true,
-        "typeRoots": ["node_modules/@types"],
-        "lib": ["es2017", "dom"]
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "lib": [
+            "es2017",
+            "dom"
+        ]
     },
-    "exclude": ["node_modules"]
+    "exclude": [
+        "node_modules"
+    ]
 }
